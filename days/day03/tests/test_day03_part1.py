@@ -1,4 +1,4 @@
-from days.days03.part1 import sum_of_part_numbers
+from days.day03.part1 import sum_of_part_numbers
 
 
 def test_day03_part1():
