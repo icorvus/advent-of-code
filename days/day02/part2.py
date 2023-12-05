@@ -1,31 +1,26 @@
 import re
+import math
 from pathlib import Path
 
 from days.common.data_parser import read_lines_from_file
 
-MAX_NUMBER_OF_CUBES = {
-    "red": 12,
-    "green": 13,
-    "blue": 14,
-}
-
 
 def sum_of_possible_game_ids(lines):
-    game_id_regex = r"Game (?P<id>\d+):"
     quantity_of_color_regex = r"(\d+ (?:blue|red|green))"
-    sum_of_ids = 0
+    sum_of_power = 0
     for line in lines:
-        is_game_possible = True
+        max_number_of_cubes = {
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+        }
         quantities_of_colors = re.findall(quantity_of_color_regex, line)
         for quantity, color in map(str.split, quantities_of_colors):
-            if int(quantity) > MAX_NUMBER_OF_CUBES[color]:
-                is_game_possible = False
-                break
-        if is_game_possible:
-            match_ = re.match(game_id_regex, line)
-            sum_of_ids += int(match_.group("id"))
+            if int(quantity) > max_number_of_cubes[color]:
+                max_number_of_cubes[color] = int(quantity)
+        sum_of_power += math.prod(max_number_of_cubes.values())
 
-    return sum_of_ids
+    return sum_of_power
 
 
 def main():

@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from days.common.data_parser import read_lines_from_file
 
 
@@ -43,7 +45,14 @@ def sum_of_calibration_values(lines):
 
 
 def main():
-    print(sum(map(get_first_and_last_digit_from_string, read_lines_from_file())))
+    print(
+        sum(
+            map(
+                get_first_and_last_digit_from_string,
+                read_lines_from_file(Path(__file__).parent / "input.txt"),
+            )
+        )
+    )
 
 
 if __name__ == "__main__":
