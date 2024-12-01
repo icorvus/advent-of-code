@@ -1,6 +1,6 @@
 # Advent of code
 
-This repository contains my solutions to the [Advent of Code](https://adventofcode.com/) 2023 programming challenges.
+This repository contains my solutions to the [Advent of Code](https://adventofcode.com/) programming challenges.
 
 
 ## Installation
@@ -29,7 +29,7 @@ This repository contains my solutions to the [Advent of Code](https://adventofco
 To run a specific day's solution, navigate to the corresponding day's directory and execute the Python scripts for `part1.py` and `part2.py`. For example:
 
 ```
-cd days/day01
+cd years/year23/day01
 python part1.py
 python part2.py
 ```
