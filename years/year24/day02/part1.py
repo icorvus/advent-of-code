@@ -8,7 +8,6 @@ def is_safe_report(report: Iterable[int]) -> bool:
     is_increasing = False
     is_decreasing = False
 
-    
     level_before = next(report)
 
     for level in report:
@@ -18,13 +17,13 @@ def is_safe_report(report: Iterable[int]) -> bool:
             is_increasing = True
         else:
             return False
-        
+
         if is_increasing and is_decreasing:
             return False
-        
+
         if not (3 >= abs(level - level_before) >= 1):
             return False
-        
+
         level_before = level
 
     return True
@@ -36,6 +35,7 @@ def get_number_of_safe_reports(lines: Iterable[str]) -> int:
         safe_reports_number += is_safe_report(map(int, line))
 
     return safe_reports_number
+
 
 def main():
     input_file = read_lines_from_file(Path(__file__).parent / "input.txt")
